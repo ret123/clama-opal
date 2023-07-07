@@ -80,17 +80,13 @@
                             </div>
                             <div class="row">
                                 <div class="form-group col-md-4">
-                                    <label for="country">Country:</label>
-                                    <div class="dropdown">
-                                        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">
-                                            Country
-                                        </button>
-                                        <div class="dropdown-menu">
-                                            <a class="dropdown-item" href="#">India</a>
-                                            <a class="dropdown-item" href="#">United State of America</a>
-                                            <a class="dropdown-item" href="#">United Kingdom</a>
-                                        </div>
-                                    </div>
+                                <label for="category">Country:</label>
+                                <select class="form-select form-control" aria-label="Default select example" name="country">
+                                 
+                                    <option value="India">India</option>
+                                    <option value="US">US</option>
+                                    <option value="Pakistan">Pakistan</option>
+                                </select>
                                 </div>
                                 <div class="form-group col-md-4">
                                     <label for="phone">Phone Number:</label>

@@ -12,7 +12,7 @@ class ProjectController extends Controller
 
     public function store(Request $request) {
         $validatedData = $request->validate([
-            // 'category' => 'required',
+            // 'project_category' => 'required',
             'title' => 'required',
             'project_description' => 'required|min:150',
             'project_objective' => 'required|min:250',
@@ -34,7 +34,7 @@ class ProjectController extends Controller
            
         }
 
-        $project->category = $request->input('category');
+        $project->project_category = $request->input('project_category');
         $project->jobs = $request->input('jobs');
         $project->target_group = $request->input('target_group');
         $project->sme = $request->input('sme');

@@ -26,7 +26,7 @@
                         <div class="row">
                             <div class="form-group col-md-4">
                                 <label for="category">Category:</label>
-                                <select class="form-select form-control" aria-label="Default select example" name="category">
+                                <select class="form-select form-control" aria-label="Default select example" name="project_category">
                                     <option selected>Category</option>
                                     <option value="1">One</option>
                                     <option value="2">Two</option>
@@ -134,6 +134,13 @@
                         <div class="row">
                             <div class="mb-3">
                                 <label for="formFile" class="form-label">Project Image</label>
+                                <div class="image-upload justify-content-center">
+                                    <label for="file-input">
+                                        <i class="fa-solid fa-upload" style="cursor:pointer"></i>
+                                    </label>
+
+                                    <input id="file-input" type="file" name="project_image" style="display:none" />
+                                </div>
                                 <input class="form-control" type="file" name="project_image" id="formFile">
                             </div>
                         </div>

@@ -38,8 +38,8 @@ class MilestoneController extends Controller
                 ));
             }
         }
-        $milestone = collect($data);
-        $request->session()->put('milestone', $milestone);
+        // $milestone = collect($data);
+        $request->session()->put('milestone', $data);
         // dd($milestone);
 
         return redirect()->route('finance.create.form');

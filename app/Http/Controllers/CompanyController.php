@@ -7,10 +7,15 @@ use Illuminate\Http\Request;
 class CompanyController extends Controller
 {
     public function store(Request $request) {
+        $request->session()->forget('company');
+        $request->session()->forget('project');
+        $request->session()->forget('milestone');
+        $request->session()->forget('finance');
 
         $validatedData = $request->validate([
             'company_type' => 'required',
-            'company_number' => 'sometimes|nullable|unique:companies',
+            'company_number' => 'exclude_if:company_number,null|required|unique:companies',
+           
             'company_name' => 'required|unique:companies',
             'email' => 'required|email|unique:companies',
             'first_name' => 'required',
@@ -28,12 +33,13 @@ class CompanyController extends Controller
            
         }
         $company->company_type = $request['company_type'];
-        
+        $company->country = $request->input('country');
         $company->website = $request->input('website');
         $company->twitter = $request->input('twitter');
         $company->linkedin = $request->input('linkedin');
         $company->facebook = $request->input('facebook');
         $request->session()->put('company', $company);
+      
 
         // dd($company);
 
@@ -55,10 +61,7 @@ class CompanyController extends Controller
         ]);
 
         $company = $request->session()->get('company');
-
-        $input = $request->all();
-        $input['organization_status'];
-
+        
         $company->organization_status = $request->input('organization_status');
         $company->organization_description =  $request->input('organization_description');
 

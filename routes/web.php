@@ -23,7 +23,6 @@ Route::get('/', function () {
 Route::post('companies/store',[\App\Http\Controllers\CompanyController::class,'store'])->name('companies.post');
 
 // Registration second step
-
 Route::get('organizations/create',[\App\Http\Controllers\CompanyController::class,'createOrganizationForm'])->name('companies.organizations.create.form');
 Route::post('organizations/store',[\App\Http\Controllers\CompanyController::class,'storeOrganizations'])->name('companies.organizations.post');
 
@@ -39,3 +38,11 @@ Route::post('milestones/store',[\App\Http\Controllers\MilestoneController::class
 Route::get('finances/create',[\App\Http\Controllers\FinanceController::class,'createForm'])->name('finance.create.form');
 Route::post('finances/store',[\App\Http\Controllers\FinanceController::class,'store'])->name('finance.post');
 
+// Registration last step
+Route::get('documents/create',[\App\Http\Controllers\DocumentController::class,'createForm'])->name('document.create.form');
+Route::post('documents/store',[\App\Http\Controllers\DocumentController::class,'store'])->name('document.post');
+
+// Success Route
+Route::get('success',function() {
+    return view('success');
+})->name('success.route');

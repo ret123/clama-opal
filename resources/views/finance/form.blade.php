@@ -3,7 +3,7 @@
 <div class="container mt-4">
     <div class="row">
         <div class="col-md-10">
-            <form action="{{route('milestones.post')}}" method="POST" id="mainForm">
+            <form action="{{route('finance.post')}}" method="POST" id="mainForm">
                 @csrf
 
                 <div class="card">
@@ -35,40 +35,32 @@
 
                         </div>
                         <div id="container">
-                            <div class="row mb-2">
+                            <div class="row mb-2 cell">
                                 <div class="col-md-4">
                                     <input type="text" name="item_description[]" class="form-control" value="{{old('item_description')}}">
                                 </div>
                                 <div class="col-md-4">
                                     <input type="number" name="cost[]" class="form-control" value="{{old('cost')}}">
                                 </div>
-                                <div class="col-md-2 addButton">
+                                <div class="col-md-2 mt-2 addButton">
 
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-plus-circle-fill" onclick="addRow" style="cursor:pointer" viewBox="0 0 16 16">
-                                        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z" />
-                                    </svg>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-dash-circle-fill" onclick="deleteRow" viewBox="0 0 16 16">
-                                        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4.5 7.5a.5.5 0 0 0 0 1h7a.5.5 0 0 0 0-1h-7z" />
-                                    </svg>
+                                    <i class="fa-solid fa-circle-plus fa-xl addRow" style="cursor:pointer"></i>
+                                    <i class="fa-solid fa-circle-minus fa-xl deleteRow" style="cursor:pointer"></i>
                                 </div>
-                              
+
 
                             </div>
-                            <div class="row mb-2">
+                            <div class="row mb-2 cell">
                                 <div class="col-md-4">
                                     <input type="text" name="item_description[]" class="form-control" value="{{old('item_description')}}">
                                 </div>
                                 <div class="col-md-4">
                                     <input type="number" name="cost[]" class="form-control" value="{{old('cost')}}">
                                 </div>
-                                <div class="col-md-2 addButton">
+                                <div class="col-md-2 mt-2 addButton">
 
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-plus-circle-fill" onclick="addRow()" style="cursor:pointer" viewBox="0 0 16 16">
-                                        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z" />
-                                    </svg>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-dash-circle-fill" onclick="deleteRow" viewBox="0 0 16 16">
-                                        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4.5 7.5a.5.5 0 0 0 0 1h7a.5.5 0 0 0 0-1h-7z" />
-                                    </svg>
+                                    <i class="fa-solid fa-circle-plus fa-xl addRow" style="cursor:pointer"></i>
+                                    <i class="fa-solid fa-circle-minus fa-xl deleteRow" style="cursor:pointer"></i>
                                 </div>
 
 
@@ -95,35 +87,32 @@
 
 @push('scripts')
 <script>
-    function addRow() {
-        console.log('clicked');
-        var newRow = $(`    <div class="row mb-2">
+    $("#container").on('click', '.addRow', function() {
+
+        var newRow = $(`    <div class="row mb-2 cell">
                                 <div class="col-md-4">
                                     <input type="text" name="item_description[]" class="form-control" value="{{old('item_description')}}">
                                 </div>
                                 <div class="col-md-4">
                                     <input type="number" name="cost[]" class="form-control" value="{{old('cost')}}">
                                 </div>
-                                <div class="col-md-2 addButton">
+                                <div class="col-md-2 mt-2 addButton">
 
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-plus-circle-fill" onclick="addRow()" style="cursor:pointer" viewBox="0 0 16 16">
-                                        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z" />
-                                    </svg>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-dash-circle-fill" onclick="deleteRow" viewBox="0 0 16 16">
-                                        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4.5 7.5a.5.5 0 0 0 0 1h7a.5.5 0 0 0 0-1h-7z" />
-                                    </svg>
+                                <i class="fa-solid fa-circle-plus fa-xl addRow" style="cursor:pointer"></i>
+                                    <i class="fa-solid fa-circle-minus fa-xl deleteRow" style="cursor:pointer"></i>
                                 </div>
 
 
                             </div>`);
         $('#container').append(newRow);
 
-    }
+    });
 </script>
 <script>
-    function deleteRow() {
-        
-    }
+    $("#container").on('click', '.deleteRow', function() {
+        console.log('clicked')
+        $(this).closest('.cell').remove();
+    });
 </script>
 
 @endpush
